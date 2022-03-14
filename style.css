@@ -1,0 +1,536 @@
+/* 
+   Author: Tianna Hatch 
+   Last Updated Date:   03/07/2022
+   
+   Filename: style.css
+*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Custom Properties */
+:root {
+	--ff-primary: 'Source Sans Pro', sans-serif;
+	--ff-secondary: 'Source Code Pro', monospace;
+
+/* Font Weight */
+	--fw-reg: 300;
+	--fw-bold: 900;
+
+/* Color */
+	--clr-light:  #fff; 
+	--clr-dark:  #303030;
+	--clr-accent: #fa5c5c; /*KDOT color code*/
+
+	/* -additional colors #79abdb, #96bbd6, 8dc7bd, f90100, 7bf542*/
+
+/* Size */
+	--fs-h1:  3rem;
+	--fs-h2:  2.25rem;
+	--fs-h3:  1.25rem;
+	--fs-body:  1rem;
+
+/* Shadow Box */
+	--bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+		0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+
+/* Adjust for screens */
+@media (min-width:  800px){
+	:root {
+	--fs-h1:  4.5rem;
+	--fs-h2:  3.75rem;
+	--fs-h3:  1.5rem;
+	--fs-body:  1.125rem;
+	}
+}
+
+/* General Styles */
+
+html {
+	scroll-behavior: smooth;
+}
+
+
+
+strong { font-weight: var(--fw-bold) }
+
+body{
+	background: var(--clr-light);
+	/* background: linear-gradient(91.47deg, #AFE4F5 0%, #5C8DD7 38.81%, #8C46C2 96.78%);
+	can test out other background gradient on figma and can add to my portfolio later 
+	I want to test a dark gradient */
+
+	color:  var(--clr-dark);
+	margin: 0;
+	font-family: var(--ff-primary);
+	font-size: var(--fs-body);
+	line-height: 1.6;
+}
+
+section {
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+
+img{
+	display: block;
+	max-width: 100%;
+}
+
+/* Button Design */
+
+.btn {
+	display: inline-block;
+	padding: .5em 2.5em;
+	background: var(--clr-accent);
+	color: var(--clr-dark);
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 1.0rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: var(--fw-bold);
+	transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+	transform: scale(1.25);
+}
+
+
+/* Typography */
+
+h1,
+h2,
+h3{
+	line-height: 1;
+	margin: 0;
+}
+
+h1{ font-size: var(--fs-h1) }
+h2{ font-size: var(--fs-h2) }
+h3{ font-size: var(--fs-h3) }
+
+.section__title{
+	margin-bottom: 0em;
+	margin-left: 0em;
+	
+}
+
+
+.section__title--intro{
+	font-weight: var(--fw-reg);
+}
+
+.section__title--intro strong{
+	display: block;
+}
+
+.section__subtitle{
+	margin: 0;
+	font-size: var(--fs-h3);
+}
+
+.section__subtitle--services {
+	font-size: var(--fs-h2);
+	font-weight: var(--fw-bold);
+	color: #fa5c5c;
+}
+
+.section__subtitle--intro,
+.section__subtitle--about {
+	background-color: var(--clr-accent);
+	padding: .25em 1em;
+	font-family: var(--ff-secondary);
+	margin-bottom: 1em;
+}
+
+/* Header */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+}
+
+.header a {
+	color: var(--clr-accent);
+	text-decoration: none;
+	font-size: 1.5em;
+	margin: 0em;
+	padding: 0em;
+}
+
+.logo {
+	max-width: 100px;
+	padding-top: none;
+}
+
+.nav {
+	position: fixed;
+	background: var(--clr-dark);
+	color: var(--clr-light);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	transform: translateX(100%);
+	transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+}
+
+
+.nav__list {
+	list-style: none;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+}
+
+.nav__link {
+	color: var(--clr-accent);
+	font-weight: var(--fw-bold);
+	font-size: var(--fs-h2);
+	text-decoration: none;
+}
+
+.nav__link:hover {
+	color: var(--clr-accent);
+}
+
+.nav-toggle {
+	padding: 2.60em;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	position: absolute;
+	right: 76.5em;
+	top: 3em;
+	z-index: 1000;
+}
+
+/* adjust hamburger icon smaller screens*/
+@media (max-width: 600px) {
+	.nav-toggle {
+		right: 25em;
+	}
+	
+	header {
+		padding-bottom: 5em;
+	}
+}
+
+.nav-open .nav {
+	transform: translateX(0);
+
+}
+
+.nav-open .nav-toggle {
+	position: fixed;
+}
+
+.nav-open .hamburger {
+	transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+	transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+	opacity: 0;
+}
+
+/* Hamburger Menu */
+
+.hamburger{
+	display: block;
+	position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+	background: var(--clr-accent);
+	width: 2em;
+	height: 3px;
+	border-radius: 1em;
+	transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.hamburger::before {
+	top: 6px;
+}
+
+.hamburger::after {
+	bottom: 6px;
+}
+
+
+/* Intro */
+
+.intro {
+	position:  relative;
+}
+
+.intro__img {
+	box-shadow: var(--bs);
+}
+
+.section__subtitle--intro {
+	display: inline-block;
+}
+
+@media (min-width: 600px) {
+
+	.intro {
+		display: grid;
+		width: min-content;
+		margin: 0 auto;
+		grid-column: 1em;
+		grid-template-areas:
+			"img title"
+			"img subtitle";
+		grid-template-columns: min-content max-content;
+		grid-column-gap: 2em;
+	}
+
+	.intro__img {
+		grid-area: img;
+		min-width: 250px;
+		position: relative;
+		z-index: 2;
+	}
+
+	.section__subtitle--intro {
+		align-self: start;
+		grid-column: -1/1;
+		grid-row: 2;
+		text-align: right;
+		position: relative;
+		left: -1.5em;
+		width: calc(100% + 1.5em);
+
+	}
+}
+
+
+/* My services section */
+
+.my-services {
+	background-color: var(--clr-dark);
+	background-size: cover;
+	color:  var(--clr-light);
+	text-align: center;
+}
+
+.section__title--services {
+	color:  var(--clr-accent);
+	position: relative;
+}
+
+.section__title--services::after {
+	content: '';
+	display: block;
+	width: 2em;
+	height: 1px;
+	margin: 0.5em auto 1em;
+	background:  var(--clr-light);
+	
+}
+
+.services {
+	margin-bottom: 2em;
+}
+
+.service {
+	
+	margin: 0 auto;
+}
+
+.service p{
+	font-size: 1.5em;
+}
+
+
+@media (min-width: 900px) {
+	.services {
+		display:  flex;
+		max-width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+}
+
+	.service + .service {
+		margin-left: 3em;
+	}
+}
+
+/* About Me Section */
+
+.about-me {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.about-me__img {
+	box-shadow: var(--bs);
+}
+
+@media (min-width: 600px) {
+	.about-me{
+		display: grid;
+		grid-template-columns: 1fr 200px;
+		grid-template-areas: 
+		"title img"
+		"subtitle img"
+		"text img";
+		grid-column-gap: 2em;
+	}
+
+	.about-me__img {
+		grid-area: img;
+		position: relative;
+		z-index: 2;
+	}
+
+	.section__title--about{
+		grid-area: title;
+	}
+
+	.section__subtitle--about{
+		grid-column: 1/-1;
+		grid-row: 2;
+		position: relative;
+		left: -1em;
+		width: calc(100% + 1em);
+		padding-left: 2em;
+		padding-right: calc(100px + 2em);  
+	}
+
+}
+
+/* My Work*/
+
+.my-work {
+	background: var(--clr-dark);
+	color: var(--clr-light);
+	text-align: center;
+	padding-left: 10em;
+	padding-right: 10em;
+	padding-bottom: 0em;
+}
+
+.section__subtitle--work {
+	color: var(--clr-light);
+	font-weight: var(--fw-reg);
+	padding-bottom: 1em;
+}
+
+.portfolio {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.portfolio__item {
+	background: var(--clr-light);
+	overflow: hidden;
+}
+
+.portfolio__img {
+	transition: 
+		transform 750ms cubic-bezier(.5, 0, .5, 1),
+		opacity 250ms linear;
+}
+
+.portfolio__item:focus {
+	position: relative;
+	z-index: 2;
+}
+
+.portfolio__img:hover,
+.portfolio__item:focus .portfolio__img {
+	transform: scale(1.1);
+	opacity: .75;
+}
+
+@media (max-width: 600px) {
+
+	.portfolio{
+		max-width: 1500px;
+		max-height: auto;
+		margin: auto;
+	}
+
+	.my-work {
+		padding-left: 0em;
+		padding-right: 0em;
+		padding-bottom: 0em;
+	}
+	
+	
+}
+
+
+/* Footer*/
+
+.footer {
+	background: #111;
+	color: var(--clr-accent);
+	text-align: center;
+	padding: 0.5em 0 0;
+	font-size: var(--fs-h3);
+}
+
+.footer a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.footer__link {
+	font-weight: var(--fw-bold);
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+	opacity: .7;
+}
+
+.footer__link:hover{
+	text-decoration: underline;
+}
+
+.social-list {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	margin: 1em 0 0;
+	padding: 0;
+}
+
+.social-list__item {
+	margin: 0.5em;
+
+}
+
+.social-list__link {
+	padding: 0.5em;
+}
