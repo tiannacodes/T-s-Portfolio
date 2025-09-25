@@ -11,41 +11,54 @@
 	box-sizing: border-box;
 }
 
-/* Custom Properties */
+/* Custom Properties - Tesla Inspired */
 :root {
-	--ff-primary: 'Source Sans Pro', sans-serif;
-	--ff-secondary: 'Source Code Pro', monospace;
+	--ff-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--ff-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
 /* Font Weight */
-	--fw-reg: 300;
-	--fw-bold: 900;
+	--fw-reg: 400;
+	--fw-medium: 500;
+	--fw-bold: 600;
+	--fw-heavy: 700;
 
-/* Color */
-	--clr-light:  #fff; 
-	--clr-dark:  #303030;
-	--clr-accent: #fa5c5c; /*KDOT color code*/
-
-	/* -additional colors #79abdb, #96bbd6, 8dc7bd, f90100, 7bf542*/
+/* Color - Tesla Inspired Palette */
+	--clr-light: #ffffff;
+	--clr-dark: #000000;
+	--clr-gray-100: #f7f7f7;
+	--clr-gray-200: #e5e5e5;
+	--clr-gray-300: #d1d1d1;
+	--clr-gray-400: #a8a8a8;
+	--clr-gray-500: #737373;
+	--clr-gray-600: #525252;
+	--clr-gray-700: #404040;
+	--clr-gray-800: #262626;
+	--clr-gray-900: #171717;
+	--clr-accent: #ffffff;
+	--clr-red: #dc2626;
 
 /* Size */
-	--fs-h1:  3rem;
-	--fs-h2:  2.25rem;
-	--fs-h3:  1.25rem;
-	--fs-body:  1rem;
+	--fs-h1: 4rem;
+	--fs-h2: 2.5rem;
+	--fs-h3: 1.5rem;
+	--fs-h4: 1.25rem;
+	--fs-body: 1rem;
+	--fs-small: 0.875rem;
 
 /* Shadow Box */
-	--bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
-		0.125em 0.125em 0.25em rgba(0,0,0,.15);
+	--bs: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--bs-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 
 /* Adjust for screens */
-@media (min-width:  800px){
+@media (min-width: 800px){
 	:root {
-	--fs-h1:  4.5rem;
-	--fs-h2:  3.75rem;
-	--fs-h3:  1.5rem;
-	--fs-body:  1.125rem;
+		--fs-h1: 5rem;
+		--fs-h2: 3.5rem;
+		--fs-h3: 2rem;
+		--fs-h4: 1.5rem;
+		--fs-body: 1.125rem;
 	}
 }
 
@@ -59,22 +72,20 @@ html {
 
 strong { font-weight: var(--fw-bold) }
 
-body{
+body {
 	background: var(--clr-light);
-	/* background: linear-gradient(91.47deg, #AFE4F5 0%, #5C8DD7 38.81%, #8C46C2 96.78%);
-	can test out other background gradient on figma and can add to my portfolio later 
-	I want to test a dark gradient */
-
-	color:  var(--clr-dark);
+	color: var(--clr-dark);
 	margin: 0;
 	font-family: var(--ff-primary);
 	font-size: var(--fs-body);
-	line-height: 1.6;
+	line-height: 1.5;
+	font-weight: var(--fw-reg);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 section {
-	padding-top: 2em;
-	padding-bottom: 2em;
+	padding: 5rem 0;
 }
 
 
@@ -83,188 +94,185 @@ img{
 	max-width: 100%;
 }
 
-/* Button Design */
+/* Button Design - Tesla Inspired */
 
 .btn {
 	display: inline-block;
-	padding: .5em 2.5em;
-	background: var(--clr-accent);
-	color: var(--clr-dark);
+	padding: 0.75rem 2rem;
+	background: var(--clr-dark);
+	color: var(--clr-light);
+	border: 2px solid var(--clr-dark);
 	text-decoration: none;
 	cursor: pointer;
-	font-size: 1.0rem;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-weight: var(--fw-bold);
-	transition: transform 200ms ease-in-out;
+	font-size: var(--fs-body);
+	text-transform: none;
+	letter-spacing: 0;
+	font-weight: var(--fw-medium);
+	border-radius: 4px;
+	transition: all 0.3s ease;
+	text-align: center;
 }
 
 .btn:hover {
-	transform: scale(1.25);
+	background: var(--clr-light);
+	color: var(--clr-dark);
+	transform: translateY(-1px);
+	box-shadow: var(--bs);
+}
+
+.btn--secondary {
+	background: transparent;
+	color: var(--clr-dark);
+	border-color: var(--clr-dark);
+}
+
+.btn--secondary:hover {
+	background: var(--clr-dark);
+	color: var(--clr-light);
 }
 
 
-/* Typography */
+/* Typography - Tesla Inspired */
 
-h1,
-h2,
-h3{
-	line-height: 1;
+h1, h2, h3, h4 {
+	line-height: 1.2;
 	margin: 0;
+	font-weight: var(--fw-medium);
+	letter-spacing: -0.02em;
 }
 
-h1{ font-size: var(--fs-h1) }
-h2{ font-size: var(--fs-h2) }
-h3{ font-size: var(--fs-h3) }
+h1 { font-size: var(--fs-h1); font-weight: var(--fw-heavy); }
+h2 { font-size: var(--fs-h2); font-weight: var(--fw-bold); }
+h3 { font-size: var(--fs-h3); font-weight: var(--fw-medium); }
+h4 { font-size: var(--fs-h4); font-weight: var(--fw-medium); }
 
-.section__title{
-	margin-bottom: 0em;
-	margin-left: 0em;
-	
+.section__title {
+	margin-bottom: 1rem;
+	text-align: center;
 }
 
-
-.section__title--intro{
-	font-weight: var(--fw-reg);
+.section__title--intro {
+	font-weight: var(--fw-heavy);
+	text-align: left;
+	margin-bottom: 0.5rem;
 }
 
-.section__title--intro strong{
+.section__title--intro strong {
 	display: block;
+	font-weight: var(--fw-heavy);
 }
 
-.section__subtitle{
+.section__subtitle {
 	margin: 0;
-	font-size: var(--fs-h3);
+	font-size: var(--fs-body);
+	font-weight: var(--fw-reg);
+	color: var(--clr-gray-600);
 }
 
 .section__subtitle--services {
-	font-size: var(--fs-h2);
-	font-weight: var(--fw-bold);
-	color: #fa5c5c;
+	font-size: var(--fs-h3);
+	font-weight: var(--fw-medium);
+	color: var(--clr-dark);
+	margin-bottom: 3rem;
 }
 
-.section__subtitle--intro,
+.section__subtitle--intro {
+	background: none;
+	padding: 0;
+	font-family: var(--ff-primary);
+	margin-bottom: 2rem;
+	font-size: var(--fs-h4);
+}
+
 .section__subtitle--about {
-	background-color: var(--clr-accent);
-	padding: .25em 1em;
-	font-family: var(--ff-secondary);
-	margin-bottom: 1em;
+	background: none;
+	padding: 0;
+	font-family: var(--ff-primary);
+	margin-bottom: 2rem;
+	font-size: var(--fs-body);
 }
 
-/* Header */
+/* Header - Tesla Inspired */
 
 header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid var(--clr-gray-200);
+	transition: all 0.3s ease;
+}
+
+.header {
 	display: flex;
 	justify-content: space-between;
-	padding: 1em;
+	align-items: center;
+	padding: 1rem 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .header a {
-	color: var(--clr-accent);
+	color: var(--clr-dark);
 	text-decoration: none;
-	font-size: 1.5em;
-	margin: 0em;
-	padding: 0em;
+	font-size: var(--fs-body);
+	margin: 0;
+	padding: 0;
+	font-weight: var(--fw-medium);
 }
 
 .logo {
-	max-width: 100px;
-	padding-top: none;
+	max-width: 120px;
+	padding-top: 0;
 }
 
 .nav {
-	position: fixed;
-	background: var(--clr-dark);
-	color: var(--clr-light);
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 100;
-	transform: translateX(100%);
-	transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+	display: flex;
+	align-items: center;
 }
-
 
 .nav__list {
 	list-style: none;
 	display: flex;
-	height: 100%;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
 	margin: 0;
 	padding: 0;
+	gap: 2rem;
 }
 
 .nav__link {
-	color: var(--clr-accent);
-	font-weight: var(--fw-bold);
-	font-size: var(--fs-h2);
+	color: var(--clr-dark);
+	font-weight: var(--fw-medium);
+	font-size: var(--fs-body);
 	text-decoration: none;
+	transition: color 0.3s ease;
+	padding: 0.5rem 0;
 }
 
 .nav__link:hover {
-	color: var(--clr-accent);
+	color: var(--clr-gray-600);
 }
 
+/* Mobile Navigation */
 .nav-toggle {
-	padding: 2.60em;
+	display: none;
+	padding: 0.5rem;
 	background: transparent;
 	border: 0;
 	cursor: pointer;
-	position: absolute;
-	right: 76.5em;
-	top: 3em;
 	z-index: 1000;
 }
 
-/* adjust hamburger icon smaller screens*/
-@media (max-width: 600px) {
-	.nav-toggle {
-		right: 25em;
-	}
-	
-	header {
-		padding-bottom: 5em;
-	}
-}
-
-.nav-open .nav {
-	transform: translateX(0);
-
-}
-
-.nav-open .nav-toggle {
-	position: fixed;
-}
-
-.nav-open .hamburger {
-	transform: rotate(.625turn);
-}
-
-.nav-open .hamburger::before {
-	transform: rotate(90deg) translateX(-6px);
-}
-
-.nav-open .hamburger::after {
-	opacity: 0;
-}
-
 /* Hamburger Menu */
-
-.hamburger{
+.hamburger {
 	display: block;
 	position: relative;
-}
-
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-	background: var(--clr-accent);
-	width: 2em;
-	height: 3px;
-	border-radius: 1em;
+	width: 24px;
+	height: 2px;
+	background: var(--clr-dark);
+	border-radius: 2px;
 	transition: transform 250ms ease-in-out;
 }
 
@@ -273,192 +281,293 @@ header {
 	content: '';
 	position: absolute;
 	left: 0;
-	right: 0;
+	width: 24px;
+	height: 2px;
+	background: var(--clr-dark);
+	border-radius: 2px;
+	transition: transform 250ms ease-in-out;
 }
 
 .hamburger::before {
-	top: 6px;
+	top: -8px;
 }
 
 .hamburger::after {
-	bottom: 6px;
+	bottom: -8px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+	.nav-toggle {
+		display: block;
+	}
+	
+	.nav {
+		position: fixed;
+		background: rgba(255, 255, 255, 0.98);
+		backdrop-filter: blur(10px);
+		top: 100%;
+		left: 0;
+		right: 0;
+		transform: translateX(100%);
+		transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+		border-top: 1px solid var(--clr-gray-200);
+	}
+
+	.nav__list {
+		flex-direction: column;
+		padding: 2rem;
+		gap: 1rem;
+	}
+
+	.nav__link {
+		font-size: var(--fs-h4);
+		text-align: center;
+	}
+
+	.nav-open .nav {
+		transform: translateX(0);
+	}
+
+	.nav-open .hamburger {
+		transform: rotate(.625turn);
+	}
+
+	.nav-open .hamburger::before {
+		transform: rotate(90deg) translateX(-6px);
+	}
+
+	.nav-open .hamburger::after {
+		opacity: 0;
+	}
 }
 
 
-/* Intro */
+/* Intro - Tesla Inspired Hero Section */
 
 .intro {
-	position:  relative;
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8rem 2rem 4rem;
+	background: var(--clr-light);
+}
+
+.intro__content {
+	max-width: 1200px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 4rem;
+	align-items: center;
+}
+
+.intro__text {
+	text-align: left;
 }
 
 .intro__img {
-	box-shadow: var(--bs);
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: var(--bs-lg);
+	transition: transform 0.3s ease;
+}
+
+.intro__img:hover {
+	transform: scale(1.05);
 }
 
 .section__subtitle--intro {
-	display: inline-block;
+	display: block;
+	margin-top: 1rem;
 }
 
-@media (min-width: 600px) {
-
+@media (max-width: 768px) {
 	.intro {
-		display: grid;
-		width: min-content;
-		margin: 0 auto;
-		grid-column: 1em;
-		grid-template-areas:
-			"img title"
-			"img subtitle";
-		grid-template-columns: min-content max-content;
-		grid-column-gap: 2em;
+		min-height: 80vh;
+		padding: 6rem 1rem 2rem;
 	}
-
+	
+	.intro__content {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		text-align: center;
+	}
+	
 	.intro__img {
-		grid-area: img;
-		min-width: 250px;
-		position: relative;
-		z-index: 2;
+		width: 200px;
+		height: 200px;
+		margin: 0 auto;
 	}
-
-	.section__subtitle--intro {
-		align-self: start;
-		grid-column: -1/1;
-		grid-row: 2;
-		text-align: right;
-		position: relative;
-		left: -1.5em;
-		width: calc(100% + 1.5em);
-
+	
+	.section__title--intro {
+		text-align: center;
 	}
 }
 
 
-/* My services section */
+/* My services section - Tesla Inspired */
 
 .my-services {
-	background-color: var(--clr-dark);
-	background-size: cover;
-	color:  var(--clr-light);
+	background-color: var(--clr-gray-100);
 	text-align: center;
+	padding: 6rem 2rem;
 }
 
 .section__title--services {
-	color:  var(--clr-accent);
+	color: var(--clr-dark);
 	position: relative;
+	margin-bottom: 3rem;
 }
 
 .section__title--services::after {
 	content: '';
 	display: block;
-	width: 2em;
-	height: 1px;
-	margin: 0.5em auto 1em;
-	background:  var(--clr-light);
-	
+	width: 60px;
+	height: 2px;
+	margin: 1rem auto 0;
+	background: var(--clr-dark);
 }
 
 .services {
-	margin-bottom: 2em;
+	max-width: 800px;
+	margin: 0 auto 3rem;
 }
 
 .service {
-	
 	margin: 0 auto;
-}
-
-.service p{
-	font-size: 1.5em;
-}
-
-
-@media (min-width: 900px) {
-	.services {
-		display:  flex;
-		max-width: 1000px;
-		margin-left: auto;
-		margin-right: auto;
-}
-
-	.service + .service {
-		margin-left: 3em;
-	}
-}
-
-/* About Me Section */
-
-.about-me {
-	max-width: 1000px;
-	margin: 0 auto;
-}
-
-.about-me__img {
+	background: var(--clr-light);
+	padding: 2rem;
+	border-radius: 8px;
 	box-shadow: var(--bs);
 }
 
-@media (min-width: 600px) {
-	.about-me{
-		display: grid;
-		grid-template-columns: 1fr 200px;
-		grid-template-areas: 
-		"title img"
-		"subtitle img"
-		"text img";
-		grid-column-gap: 2em;
-	}
-
-	.about-me__img {
-		grid-area: img;
-		position: relative;
-		z-index: 2;
-	}
-
-	.section__title--about{
-		grid-area: title;
-	}
-
-	.section__subtitle--about{
-		grid-column: 1/-1;
-		grid-row: 2;
-		position: relative;
-		left: -1em;
-		width: calc(100% + 1em);
-		padding-left: 2em;
-		padding-right: calc(100px + 2em);  
-	}
-
+.service p {
+	font-size: var(--fs-body);
+	line-height: 1.6;
+	color: var(--clr-gray-700);
+	margin: 0;
 }
 
-/* My Work*/
+.service p:first-child {
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-medium);
+	color: var(--clr-dark);
+	margin-bottom: 1rem;
+}
+
+.service p:last-child {
+	font-size: var(--fs-small);
+	color: var(--clr-gray-600);
+}
+
+/* About Me Section - Tesla Inspired */
+
+.about-me {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 6rem 2rem;
+}
+
+.about-me__content {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 4rem;
+	align-items: start;
+}
+
+.about-me__text {
+	max-width: 600px;
+}
+
+.about-me__img {
+	width: 250px;
+	height: 250px;
+	border-radius: 8px;
+	object-fit: cover;
+	box-shadow: var(--bs-lg);
+	transition: transform 0.3s ease;
+}
+
+.about-me__img:hover {
+	transform: scale(1.05);
+}
+
+.about-me__body {
+	margin-top: 2rem;
+}
+
+.about-me__body p {
+	font-size: var(--fs-body);
+	line-height: 1.7;
+	color: var(--clr-gray-700);
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	.about-me {
+		padding: 4rem 1rem;
+	}
+	
+	.about-me__content {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		text-align: center;
+	}
+	
+	.about-me__img {
+		width: 200px;
+		height: 200px;
+		margin: 0 auto;
+	}
+}
+
+/* My Work - Tesla Inspired */
 
 .my-work {
-	background: var(--clr-dark);
-	color: var(--clr-light);
+	background: var(--clr-light);
+	color: var(--clr-dark);
 	text-align: center;
-	padding-left: 10em;
-	padding-right: 10em;
-	padding-bottom: 0em;
+	padding: 6rem 2rem;
 }
 
 .section__subtitle--work {
-	color: var(--clr-light);
+	color: var(--clr-gray-600);
 	font-weight: var(--fw-reg);
-	padding-bottom: 1em;
+	margin-bottom: 4rem;
 }
 
 .portfolio {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	gap: 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .portfolio__item {
 	background: var(--clr-light);
 	overflow: hidden;
+	border-radius: 12px;
+	box-shadow: var(--bs);
+	transition: all 0.3s ease;
+	border: 1px solid var(--clr-gray-200);
+}
+
+.portfolio__item:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--bs-lg);
 }
 
 .portfolio__img {
-	transition: 
-		transform 750ms cubic-bezier(.5, 0, .5, 1),
-		opacity 250ms linear;
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	transition: transform 0.3s ease;
 }
 
 .portfolio__item:focus {
@@ -468,69 +577,70 @@ header {
 
 .portfolio__img:hover,
 .portfolio__item:focus .portfolio__img {
-	transform: scale(1.1);
-	opacity: .75;
+	transform: scale(1.05);
 }
 
-@media (max-width: 600px) {
-
-	.portfolio{
-		max-width: 1500px;
-		max-height: auto;
-		margin: auto;
-	}
-
+@media (max-width: 768px) {
 	.my-work {
-		padding-left: 0em;
-		padding-right: 0em;
-		padding-bottom: 0em;
+		padding: 4rem 1rem;
 	}
 	
+	.portfolio {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
 	
+	.portfolio__img {
+		height: 200px;
+	}
 }
 
 
-/* Footer*/
+/* Footer - Tesla Inspired */
 
 .footer {
-	background: #111;
-	color: var(--clr-accent);
+	background: var(--clr-gray-900);
+	color: var(--clr-light);
 	text-align: center;
-	padding: 0.5em 0 0;
-	font-size: var(--fs-h3);
+	padding: 3rem 2rem 2rem;
 }
 
 .footer a {
 	color: inherit;
 	text-decoration: none;
+	transition: color 0.3s ease;
 }
 
 .footer__link {
-	font-weight: var(--fw-bold);
+	font-weight: var(--fw-medium);
 }
 
 .footer__link:hover,
 .social-list__link:hover {
-	opacity: .7;
-}
-
-.footer__link:hover{
-	text-decoration: underline;
+	color: var(--clr-gray-300);
 }
 
 .social-list {
 	list-style: none;
 	display: flex;
 	justify-content: center;
-	margin: 1em 0 0;
+	margin: 2rem 0 0;
 	padding: 0;
+	gap: 2rem;
 }
 
 .social-list__item {
-	margin: 0.5em;
-
+	margin: 0;
 }
 
 .social-list__link {
-	padding: 0.5em;
+	padding: 0.75rem;
+	font-size: 1.5rem;
+	border-radius: 50%;
+	transition: all 0.3s ease;
+}
+
+.social-list__link:hover {
+	background: var(--clr-gray-800);
+	transform: translateY(-2px);
 }
