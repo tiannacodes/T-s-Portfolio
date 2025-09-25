@@ -22,20 +22,20 @@
 	--fw-bold: 600;
 	--fw-heavy: 700;
 
-/* Color - Tesla Inspired Palette */
-	--clr-light: #ffffff;
-	--clr-dark: #000000;
-	--clr-gray-100: #f7f7f7;
-	--clr-gray-200: #e5e5e5;
-	--clr-gray-300: #d1d1d1;
-	--clr-gray-400: #a8a8a8;
-	--clr-gray-500: #737373;
-	--clr-gray-600: #525252;
-	--clr-gray-700: #404040;
-	--clr-gray-800: #262626;
-	--clr-gray-900: #171717;
-	--clr-accent: #ffffff;
-	--clr-red: #dc2626;
+/* Color - Igloo Inc Inspired Palette */
+	--clr-light: #b6bac5;
+	--clr-dark: #383e4e;
+	--clr-gray-100: #f8f9fa;
+	--clr-gray-200: #e9ecef;
+	--clr-gray-300: #dee2e6;
+	--clr-gray-400: #b6bac5;
+	--clr-gray-500: #6c757d;
+	--clr-gray-600: #495057;
+	--clr-gray-700: #383e4e;
+	--clr-gray-800: #2c3138;
+	--clr-gray-900: #1a1d24;
+	--clr-accent: #b6bac5;
+	--clr-primary: #383e4e;
 
 /* Size */
 	--fs-h1: 4rem;
@@ -73,7 +73,7 @@ html {
 strong { font-weight: var(--fw-bold) }
 
 body {
-	background: var(--clr-light);
+	background: var(--clr-gray-100);
 	color: var(--clr-dark);
 	margin: 0;
 	font-family: var(--ff-primary);
@@ -200,9 +200,9 @@ header {
 	left: 0;
 	right: 0;
 	z-index: 1000;
-	background: rgba(255, 255, 255, 0.95);
-	backdrop-filter: blur(10px);
-	border-bottom: 1px solid var(--clr-gray-200);
+	background: rgba(248, 249, 250, 0.95);
+	backdrop-filter: blur(15px);
+	border-bottom: 1px solid var(--clr-light);
 	transition: all 0.3s ease;
 }
 
@@ -352,7 +352,7 @@ header {
 	align-items: center;
 	justify-content: center;
 	padding: 8rem 2rem 4rem;
-	background: var(--clr-light);
+	background: linear-gradient(135deg, var(--clr-gray-100) 0%, var(--clr-light) 100%);
 }
 
 .intro__content {
@@ -413,13 +413,14 @@ header {
 /* My services section - Tesla Inspired */
 
 .my-services {
-	background-color: var(--clr-gray-100);
+	background: linear-gradient(135deg, var(--clr-dark) 0%, var(--clr-gray-800) 100%);
+	color: var(--clr-light);
 	text-align: center;
 	padding: 6rem 2rem;
 }
 
 .section__title--services {
-	color: var(--clr-dark);
+	color: var(--clr-light);
 	position: relative;
 	margin-bottom: 3rem;
 }
@@ -430,7 +431,7 @@ header {
 	width: 60px;
 	height: 2px;
 	margin: 1rem auto 0;
-	background: var(--clr-dark);
+	background: var(--clr-light);
 }
 
 .services {
@@ -440,29 +441,31 @@ header {
 
 .service {
 	margin: 0 auto;
-	background: var(--clr-light);
+	background: rgba(182, 186, 197, 0.1);
+	backdrop-filter: blur(10px);
+	border: 1px solid var(--clr-light);
 	padding: 2rem;
-	border-radius: 8px;
-	box-shadow: var(--bs);
+	border-radius: 12px;
+	box-shadow: 0 8px 32px rgba(56, 62, 78, 0.1);
 }
 
 .service p {
 	font-size: var(--fs-body);
 	line-height: 1.6;
-	color: var(--clr-gray-700);
+	color: var(--clr-light);
 	margin: 0;
 }
 
 .service p:first-child {
 	font-size: var(--fs-h4);
 	font-weight: var(--fw-medium);
-	color: var(--clr-dark);
+	color: var(--clr-light);
 	margin-bottom: 1rem;
 }
 
 .service p:last-child {
 	font-size: var(--fs-small);
-	color: var(--clr-gray-600);
+	color: rgba(182, 186, 197, 0.8);
 }
 
 /* About Me Section - Tesla Inspired */
@@ -550,17 +553,18 @@ header {
 }
 
 .portfolio__item {
-	background: var(--clr-light);
+	background: var(--clr-gray-100);
 	overflow: hidden;
 	border-radius: 12px;
-	box-shadow: var(--bs);
+	box-shadow: 0 8px 32px rgba(56, 62, 78, 0.1);
 	transition: all 0.3s ease;
-	border: 1px solid var(--clr-gray-200);
+	border: 1px solid var(--clr-light);
 }
 
 .portfolio__item:hover {
-	transform: translateY(-4px);
-	box-shadow: var(--bs-lg);
+	transform: translateY(-8px);
+	box-shadow: 0 16px 48px rgba(56, 62, 78, 0.2);
+	border-color: var(--clr-dark);
 }
 
 .portfolio__img {
@@ -599,7 +603,7 @@ header {
 /* Footer - Tesla Inspired */
 
 .footer {
-	background: var(--clr-gray-900);
+	background: linear-gradient(135deg, var(--clr-dark) 0%, var(--clr-gray-800) 100%);
 	color: var(--clr-light);
 	text-align: center;
 	padding: 3rem 2rem 2rem;
@@ -617,7 +621,7 @@ header {
 
 .footer__link:hover,
 .social-list__link:hover {
-	color: var(--clr-gray-300);
+	color: var(--clr-light);
 }
 
 .social-list {
@@ -641,6 +645,6 @@ header {
 }
 
 .social-list__link:hover {
-	background: var(--clr-gray-800);
+	background: rgba(182, 186, 197, 0.2);
 	transform: translateY(-2px);
 }
