@@ -20,154 +20,165 @@
 
    		<!--- Font Link - Tesla Inspired --->
    		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
    		<!--- link CSS Style Sheets --->
    		<link rel="stylesheet" href="style.css">
 
 	</head>
 	<body>
-		<header class="header">
-			<div class="logo">
-				<!--- insert logo img here-->
-			</div>
-			
-			<button class="nav-toggle" aria-label="toggle navigation"> 
-				<span class="hamburger"></span>
-			</button>
 
-			<!--- navigation  --->
-			<nav class="nav">
-				<ul class="nav__list">
-					<li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
-					<li class="nav__item"><a href="#services" class="nav__link">Skills</a></li>
-					<li class="nav__item"><a href="#about" class="nav__link">About Me</a></li>
-					<li class="nav__item"><a href="#work" class="nav__link">My Work</a></li>
-					<li class="nav__item"><a href="#footer" class="nav__link">Contact</a></li>
-				</ul>
-			</nav>
-		</header>
-	
-	<!--- intro/home  --->
-		<section class="intro" id="home">
-			<div class="intro__content">
-				<div class="intro__text">
-					<h1 class="section__title section__title--intro">
-						Hello, I am <strong>Tianna</strong>
-					</h1>
-					<p class="section__subtitle section__subtitle--intro">I build automated solutions that turn data into strategy. As a Data Analyst Developer and former Captain & Logistics Officer, my expertise lies in overseeing the full-stack development of new systems and driving large-scale projects to successful completion, ensuring efficiency and on-time delivery.</p>
+		<!-- Preloader -->
+		<div id="preloader">
+			<div class="preloader-content">
+				<div class="preloader-logo">
+					<h1>T</h1>
 				</div>
-				<img src="media/profile_optimized.jpg" alt="a photo of T" class="intro__img">
-			</div>
-		</section>
-
-
-	<!--- Technical Skills --->
-		<section class="my-services" id="services">
-			<h2 class="section__title section__title--services">Technical Skills</h2>
-			<div class="skills-container">
-				<div class="skill-category">
-					<h3 class="skill-category__title">Programming Languages</h3>
-					<div class="skill-items">
-						<span class="skill-item">JavaScript</span>
-						<span class="skill-item">SQL</span>
-						<span class="skill-item">Python</span>
-						<span class="skill-item">TypeScript</span>
-						<span class="skill-item">C++</span>
-						<span class="skill-item">Java</span>
-						<span class="skill-item">VBA</span>
-					</div>
-				</div>
-
-				<div class="skill-category">
-					<h3 class="skill-category__title">Web Application</h3>
-					<div class="skill-items">
-						<span class="skill-item">HTML/CSS</span>
-						<span class="skill-item">XML</span>
-						<span class="skill-item">JSON</span>
-						<span class="skill-item">React.js</span>
-						<span class="skill-item">Vue.js</span>
-						<span class="skill-item">REST API</span>
-						<span class="skill-item">ASP.NET</span>
-					</div>
-				</div>
-
-				<div class="skill-category">
-					<h3 class="skill-category__title">Software/Tools</h3>
-					<div class="skill-items">
-						<span class="skill-item">Visual Studio</span>
-						<span class="skill-item">Git</span>
-						<span class="skill-item">Docker</span>
-						<span class="skill-item">AWS</span>
-						<span class="skill-item">Microsoft Azure</span>
-						<span class="skill-item">Adobe Photoshop</span>
-						<span class="skill-item">Adobe XD</span>
-						<span class="skill-item">Figma</span>
-						<span class="skill-item">Power BI</span>
-						<span class="skill-item">Power Automate</span>
-						<span class="skill-item">Tableau</span>
-					</div>
-				</div>
-
-				<div class="skill-category">
-					<h3 class="skill-category__title">Certifications</h3>
-					<div class="skill-items">
-						<span class="skill-item">Certified in Cybersecurity ISC2</span>
-						<span class="skill-item">Cybersecurity Analyst+</span>
-					</div>
+				<div class="preloader-text">Loading...</div>
+				<div class="preloader-counter">
+					<span class="preloader-percentage">0%</span>
 				</div>
 			</div>
-			<a href="#work" class="btn">My Work</a>
-		</section>
-
-		<!--- About Me --->
-		<section class="about-me" id="about">
-			<div class="about-me__content">
-				<div class="about-me__text">
-					<h2 class="section__title section__title--about">About Me</h2>
-					<p class="section__subtitle section__subtitle--about"></p>
-
-					<div class="about-me__body">
-						<p>In 2014, during my senior year of high school, I enlisted into the U.S. ARMY National Guard, Simultaneous Membership Program (SMP). While attending
-							Buffalo State College I earned ROTC commission in 2017. I have served as Platoon Leader for A Co. 642nd Aviation Support Battalion as well as Executive 
-							Officer for A Co. 642nd Aviation Support Battalion. I've also earned my Pathfinder additional skill identifier.
-						In 2017, I earned my first Bachelors Degree in Sociology. In 2022, I earned a secondary Bachelor's Degree in Computer Information Systems with a 4.0 Major GPA.</p>
-					</div>
-				</div>
-			</div>
-		</section>
+		</div>
 
 		<!--- My Work--->
 		<section class="my-work" id="work">
-			<h2 class="section__title section__title--work">My Work</h2>
-			<p class="section__subtitle section__subtitle--work"></p>
-
+			<!-- Left Side - Scrollable Project Images -->
 			<div class="portfolio">
-				
-					<!--- Glass UI Design Portfolio Piece -->
-				<a target="_blank" rel="noopener noreferrer" href="https://github.com/tiannacodes/glass-ui-figma/blob/main/glass.css" class="portfolio__item">
-					<img src="media/glass1.png" alt="" class="portfolio__img">
+				<!-- Saint Project -->
+				<div class="portfolio__item">
+					<img src="media/Saint.png?v=6" alt="Saint Project" class="portfolio__img" loading="eager" decoding="async">
+				</div>
 
-				<!--- Tesla App iOS React Native App Portfolio Piece -->
-				<a target="_blank" rel="noopener noreferrer" href="https://github.com/tiannacodes/TeslaClone" class="portfolio__item">
-				<img src="media/port_optimized.png" alt="" class="portfolio__img">
-				</a>
+				<!-- Solo Project -->
+				<div class="portfolio__item">
+					<img src="media/solo.png?v=6" alt="Solo Project" class="portfolio__img" loading="eager" decoding="async">
+				</div>
 
-				<!--- Midnight Society iOS Reach Native App Portfolio Piece -->
-				<a target="_blank" rel="noopener noreferrer" href="https://github.com/tiannacodes/12am" class="portfolio__item">
-				<img src="media/port2_optimized.png" alt="" class="portfolio__img">
+				<!-- RAG Project -->
+				<div class="portfolio__item">
+					<img src="media/rag.png?v=7" alt="RAG Project" class="portfolio__img" loading="eager" decoding="async">
+				</div>
 
+				<!-- Mess Project -->
+				<div class="portfolio__item">
+					<img src="media/mess.png?v=6" alt="Mess Project" class="portfolio__img" loading="eager" decoding="async">
+				</div>
 
-				<!--- Midnight Society iOS Reach Native App Portfolio Piece -->
-				<a target="_blank" rel="noopener noreferrer" href="https://github.com/tiannacodes/12am" class="portfolio__item">
-					<img src="media/port3_optimized.png" alt="" class="portfolio__img">
+				<!-- Glass UI Design -->
+				<div class="portfolio__item">
+					<img src="media/glass1.png?v=6" alt="Glass UI Design" class="portfolio__img" loading="eager" decoding="async">
+				</div>
 
-				<!--- Gold Core Adobe Illustrator -->
-				<a target="_blank" rel="noopener noreferrer" class="portfolio__item">
-					<img src="media/gold.png" alt="" class="portfolio__img">
+				<!-- Tesla Clone App -->
+				<div class="portfolio__item">
+					<img src="media/port_optimized.png?v=6" alt="Tesla Clone App" class="portfolio__img" loading="eager" decoding="async">
+				</div>
+
+				<!-- Midnight Society App -->
+				<div class="portfolio__item">
+					<img src="media/port2_optimized.png?v=6" alt="Midnight Society App" class="portfolio__img" loading="eager" decoding="async">
+				</div>
+
+				<!-- Digital Innovation -->
+				<div class="portfolio__item">
+					<img src="media/port3_optimized.png?v=6" alt="Digital Innovation" class="portfolio__img" loading="eager" decoding="async">
+				</div>
+
+				<!-- Gold Core Design -->
+				<div class="portfolio__item">
+					<img src="media/gold.png?v=6" alt="Gold Core Design" class="portfolio__img" loading="eager" decoding="async">
+				</div>
+
+				<!-- T.H. Brand Identity -->
+				<div class="portfolio__item">
+					<img src="media/th.png?v=6" alt="T.H. Brand Identity" class="portfolio__img" loading="eager" decoding="async">
+				</div>
+			</div>
+
+			<!-- Right Side - Fixed Content Sidebar -->
+			<div class="about-sidebar">
+				<div class="about-sidebar__content">
+					<!-- Hello Section -->
+					<div class="hello-section">
+						<h2 class="hello-title">Hello, I'm Tianna</h2>
+					</div>
 					
-				<!--- T.H. Adobe Illustrator -->
-				<a target="_blank" rel="noopener noreferrer" class="portfolio__item">
-					<img src="media/th.png" alt="" class="portfolio__img">	
+				<!-- Profile Photo and About Me Section -->
+				<div class="profile-section">
+					<img src="media/profile_optimized.jpg?v=12" alt="Tianna" class="profile-img">
+					<div class="about-content">
+						<h3 class="about-title">About Me</h3>
+						<p></p>
+						<p class="about-text">For over 10 years, I've been a creative developer and leader, building digital experiences that feel as good as they look.
+							My background in military leadership taught me how to translate high-level strategic vision into tactical, technical execution. Whether I'm diving deep into the
+							laws of physics, exploring new worlds in a video game, or perfecting my personal style, my philosophy is the same: lead with intention, build with purpose, and never be afraid to
+							bridge the gap between imagination and execution.</div>
+				</div>
+					
+					<!-- Contact, Resume and GitHub Buttons -->
+					<div class="resume-section">
+						<a href="mailto:tianhatch@gmail.com" class="contact-button">Contact Me</a>
+						<a href="media/Tianna_Resume.pdf" target="_blank" class="resume-button">View Resume</a>
+						<a href="https://github.com/tiannacodes" target="_blank" class="github-button">GitHub</a>
+					</div>
+					
+					<!-- Technical Skills Section -->
+					<div class="skills-container">
+						<h3 class="skills-title">Technical Skills</h3>
+						
+						<div class="skill-category">
+							<h4 class="skill-category__title">Programming Languages</h4>
+							<div class="skill-items">
+								<span class="skill-item">JavaScript</span>
+								<span class="skill-item">SQL</span>
+								<span class="skill-item">Python</span>
+								<span class="skill-item">TypeScript</span>
+								<span class="skill-item">C++</span>
+								<span class="skill-item">Java</span>
+								<span class="skill-item">VBA</span>
+							</div>
+						</div>
+						
+						<div class="skill-category">
+							<h4 class="skill-category__title">Web Application</h4>
+							<div class="skill-items">
+								<span class="skill-item">HTML/CSS</span>
+								<span class="skill-item">XML</span>
+								<span class="skill-item">JSON</span>
+								<span class="skill-item">React.js</span>
+								<span class="skill-item">Vue.js</span>
+								<span class="skill-item">REST API</span>
+								<span class="skill-item">ASP.NET</span>
+							</div>
+						</div>
+						
+						<div class="skill-category">
+							<h4 class="skill-category__title">Software/Tools</h4>
+							<div class="skill-items">
+								<span class="skill-item">Visual Studio</span>
+								<span class="skill-item">Git</span>
+								<span class="skill-item">Docker</span>
+								<span class="skill-item">AWS</span>
+								<span class="skill-item">Microsoft Azure</span>
+								<span class="skill-item">Adobe Photoshop</span>
+								<span class="skill-item">Adobe XD</span>
+								<span class="skill-item">Figma</span>
+								<span class="skill-item">Power BI</span>
+								<span class="skill-item">Power Automate</span>
+								<span class="skill-item">Tableau</span>
+							</div>
+						</div>
+						
+						<div class="skill-category">
+							<h4 class="skill-category__title">Certifications</h4>
+							<div class="skill-items">
+								<span class="skill-item">Certified in Cybersecurity ISC2</span>
+								<span class="skill-item">Cybersecurity Analyst+</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -191,6 +202,43 @@
 		</footer>
 
 <script src="index.js"></script>
+
+<script>
+// Fast preloader
+function hidePreloader() {
+	const preloader = document.getElementById('preloader');
+	if (preloader) {
+		preloader.style.opacity = '0';
+		preloader.style.transition = 'opacity 0.3s ease-out';
+		setTimeout(() => {
+			preloader.style.display = 'none';
+		}, 300);
+	}
+}
+
+function countUp() {
+	const percentage = document.querySelector('.preloader-percentage');
+	if (percentage) {
+		let current = parseInt(percentage.textContent) || 0;
+		current += 15;
+		if (current >= 100) {
+			percentage.textContent = '100%';
+			setTimeout(hidePreloader, 300);
+		} else {
+			percentage.textContent = current + '%';
+			setTimeout(countUp, 150);
+		}
+	}
+}
+
+// Start quickly after 1 second
+setTimeout(() => {
+	countUp();
+}, 1000);
+
+// Force hide after 4 seconds max
+setTimeout(hidePreloader, 4000);
+</script>
 
 	</body>
 

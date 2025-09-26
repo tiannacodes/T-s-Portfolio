@@ -5,6 +5,78 @@
    Filename: style.css
 */
 
+/* Preloader */
+#preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: 
+		radial-gradient(circle at 30% 20%, rgba(200, 200, 200, 0.6) 0%, transparent 60%),
+		radial-gradient(circle at 70% 80%, rgba(180, 180, 180, 0.5) 0%, transparent 70%),
+		linear-gradient(135deg, rgba(190, 190, 190, 0.4) 0%, transparent 50%),
+		linear-gradient(45deg, rgba(210, 210, 210, 0.3) 0%, transparent 60%),
+		#f8f8f8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+	transition: opacity 0.5s ease-out;
+}
+
+.preloader-content {
+	text-align: center;
+	color: #333;
+}
+
+.preloader-logo h1 {
+	font-family: 'Playfair Display', serif;
+	font-size: 4rem;
+	font-weight: 600;
+	margin: 0 0 2rem 0;
+	opacity: 0;
+	animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+.preloader-text {
+	font-family: 'Inter', sans-serif;
+	font-size: 1rem;
+	font-weight: 300;
+	margin-bottom: 2rem;
+	opacity: 0;
+	animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+.preloader-counter {
+	opacity: 0;
+	animation: fadeInUp 0.8s ease-out 0.9s forwards;
+}
+
+.preloader-percentage {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: #333;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+.preloader-hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
 *,
 *::before,
 *::after {
@@ -23,30 +95,31 @@
 	--fw-medium: 500;
 	--fw-bold: 600;
 
-/* Color - Japanese Minimalism + High Fashion */
+/* Color - Mekuwelt Inspired Monochrome */
 	--clr-white: #ffffff;
-	--clr-paper: #fefefe;
-	--clr-light: #f8f8f8;
-	--clr-gray-100: #f5f5f5;
-	--clr-gray-200: #eeeeee;
-	--clr-gray-300: #e0e0e0;
-	--clr-gray-400: #bdbdbd;
-	--clr-gray-500: #9e9e9e;
+	--clr-paper: #fafafa;
+	--clr-light: #f5f5f5;
+	--clr-gray-100: #f0f0f0;
+	--clr-gray-200: #e5e5e5;
+	--clr-gray-300: #d5d5d5;
+	--clr-gray-400: #b5b5b5;
+	--clr-gray-500: #959595;
 	--clr-gray-600: #757575;
-	--clr-gray-700: #616161;
-	--clr-gray-800: #424242;
-	--clr-gray-900: #212121;
+	--clr-gray-700: #585555; /* Mekuwelt signature color */
+	--clr-gray-800: #3a3a3a;
+	--clr-gray-900: #1a1a1a;
 	--clr-black: #000000;
-	--clr-accent: #d4af37; /* Luxury gold accent */
-	--clr-accent-dark: #b8941f;
+	--clr-accent: #585555; /* Using Mekuwelt's signature color as accent */
+	--clr-accent-dark: #3a3a3a;
 
-/* Size */
-	--fs-h1: 4rem;
-	--fs-h2: 2.5rem;
-	--fs-h3: 1.5rem;
-	--fs-h4: 1.25rem;
-	--fs-body: 1rem;
+/* Size - Mekuwelt Inspired Typography */
+	--fs-h1: 6rem;
+	--fs-h2: 4rem;
+	--fs-h3: 2.5rem;
+	--fs-h4: 1.75rem;
+	--fs-body: 1.125rem;
 	--fs-small: 0.875rem;
+	--fs-large: 8rem;
 
 /* Shadow Box */
 	--bs: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -57,11 +130,12 @@
 /* Adjust for screens */
 @media (min-width: 800px){
 	:root {
-		--fs-h1: 5rem;
-		--fs-h2: 3.5rem;
-		--fs-h3: 2rem;
-		--fs-h4: 1.5rem;
-		--fs-body: 1.125rem;
+		--fs-h1: 8rem;
+		--fs-h2: 5rem;
+		--fs-h3: 3rem;
+		--fs-h4: 2rem;
+		--fs-body: 1.25rem;
+		--fs-large: 12rem;
 	}
 }
 
@@ -79,17 +153,36 @@ body {
 	background: var(--clr-paper);
 	color: var(--clr-gray-900);
 	margin: 0;
-	font-family: var(--ff-primary);
+	font-family: 'Inter', sans-serif;
 	font-size: var(--fs-body);
 	line-height: 1.7;
-	font-weight: var(--fw-light);
+	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	letter-spacing: 0.02em;
 }
 
+/* General Layout - Mekuwelt Inspired */
 section {
 	padding: 8rem 0;
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	position: relative;
+}
+
+section::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, var(--clr-gray-300), transparent);
+	opacity: 0;
+	transition: opacity 0.6s ease;
+}
+
+section:hover::before {
+	opacity: 1;
 }
 
 
@@ -136,20 +229,40 @@ img{
 }
 
 
-/* Typography - Tesla Inspired */
+/* Typography - Mekuwelt Inspired */
 
 h1, h2, h3, h4 {
-	line-height: 1.3;
+	line-height: 0.9;
 	margin: 0;
 	font-weight: var(--fw-ultra-light);
 	letter-spacing: 0.02em;
 	color: var(--clr-gray-900);
+	font-family: var(--ff-primary);
 }
 
-h1 { font-size: var(--fs-h1); font-weight: var(--fw-light); }
-h2 { font-size: var(--fs-h2); font-weight: var(--fw-light); }
-h3 { font-size: var(--fs-h3); font-weight: var(--fw-light); }
-h4 { font-size: var(--fs-h4); font-weight: var(--fw-reg); }
+h1 { 
+	font-size: var(--fs-h1); 
+	font-weight: var(--fw-ultra-light);
+	letter-spacing: 0.01em;
+}
+
+h2 { 
+	font-size: var(--fs-h2);
+	font-weight: var(--fw-ultra-light);
+	letter-spacing: 0.02em;
+}
+
+h3 { 
+	font-size: var(--fs-h3); 
+	font-weight: var(--fw-light);
+	letter-spacing: 0.03em;
+}
+
+h4 { 
+	font-size: var(--fs-h4); 
+	font-weight: var(--fw-light);
+	letter-spacing: 0.04em;
+}
 
 .section__title {
 	margin-bottom: 1rem;
@@ -197,158 +310,12 @@ h4 { font-size: var(--fs-h4); font-weight: var(--fw-reg); }
 	font-size: var(--fs-body);
 }
 
-/* Header - Tesla Inspired */
-
-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 1000;
-	background: rgba(254, 254, 254, 0.9);
-	backdrop-filter: blur(20px);
-	border-bottom: 1px solid var(--clr-gray-200);
-	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem 2rem;
-	max-width: 1200px;
-	margin: 0 auto;
-}
-
-.header a {
-	color: var(--clr-dark);
-	text-decoration: none;
-	font-size: var(--fs-body);
-	margin: 0;
-	padding: 0;
-	font-weight: var(--fw-medium);
-}
-
-.logo {
-	max-width: 120px;
-	padding-top: 0;
-}
-
-.nav {
-	display: flex;
-	align-items: center;
-}
-
-.nav__list {
-	list-style: none;
-	display: flex;
-	margin: 0;
-	padding: 0;
-	gap: 2rem;
-}
-
-.nav__link {
-	color: var(--clr-dark);
-	font-weight: var(--fw-medium);
-	font-size: var(--fs-body);
-	text-decoration: none;
-	transition: color 0.3s ease;
-	padding: 0.5rem 0;
-}
-
-.nav__link:hover {
-	color: var(--clr-gray-600);
-}
-
-/* Mobile Navigation */
-.nav-toggle {
-	display: none;
-	padding: 0.5rem;
-	background: transparent;
-	border: 0;
-	cursor: pointer;
-	z-index: 1000;
-}
-
-/* Hamburger Menu */
-.hamburger {
-	display: block;
-	position: relative;
-	width: 24px;
-	height: 2px;
-	background: var(--clr-dark);
-	border-radius: 2px;
-	transition: transform 250ms ease-in-out;
-}
-
-.hamburger::before,
-.hamburger::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	width: 24px;
-	height: 2px;
-	background: var(--clr-dark);
-	border-radius: 2px;
-	transition: transform 250ms ease-in-out;
-}
-
-.hamburger::before {
-	top: -8px;
-}
-
-.hamburger::after {
-	bottom: -8px;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-	.nav-toggle {
-		display: block;
-	}
-	
-	.nav {
-		position: fixed;
-		background: rgba(255, 255, 255, 0.98);
-		backdrop-filter: blur(10px);
-		top: 100%;
-		left: 0;
-		right: 0;
-		transform: translateX(100%);
-		transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
-		border-top: 1px solid var(--clr-gray-200);
-	}
-
-	.nav__list {
-		flex-direction: column;
-		padding: 2rem;
-		gap: 1rem;
-	}
-
-	.nav__link {
-		font-size: var(--fs-h4);
-		text-align: center;
-	}
-
-	.nav-open .nav {
-		transform: translateX(0);
-	}
-
-	.nav-open .hamburger {
-		transform: rotate(.625turn);
-	}
-
-	.nav-open .hamburger::before {
-		transform: rotate(90deg) translateX(-6px);
-	}
-
-	.nav-open .hamburger::after {
-		opacity: 0;
-	}
-}
 
 
-/* Intro - Tesla Inspired Hero Section */
+
+
+
+/* Intro - Mekuwelt Inspired Hero Section */
 
 .intro {
 	position: relative;
@@ -356,17 +323,20 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 12rem 4rem 8rem;
-	background: var(--clr-paper);
+	padding: 8rem 4rem;
+	background: var(--clr-white);
+	overflow: hidden;
 }
 
 .intro__content {
 	max-width: 1400px;
 	width: 100%;
 	display: grid;
-	grid-template-columns: 2fr 1fr;
-	gap: 8rem;
+	grid-template-columns: 1fr 1fr;
+	gap: 6rem;
 	align-items: center;
+	position: relative;
+	z-index: 2;
 }
 
 .intro__text {
@@ -374,45 +344,57 @@ header {
 }
 
 .intro__img {
-	width: 400px;
-	height: 400px;
+	width: 100%;
+	height: 600px;
 	border-radius: 0;
 	object-fit: cover;
-	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-	transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	filter: grayscale(20%);
+	box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	filter: none;
 }
 
-.intro__img:hover {
-	transform: translateY(-10px);
-	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
-	filter: grayscale(0%);
+.section__title--intro {
+	font-size: var(--fs-large);
+	font-weight: var(--fw-ultra-light);
+	line-height: 0.9;
+	margin-bottom: 2rem;
+	color: var(--clr-gray-900);
 }
 
 .section__subtitle--intro {
 	display: block;
-	margin-top: 1rem;
+	margin-top: 2rem;
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-700);
+	line-height: 1.4;
 }
 
 @media (max-width: 768px) {
 	.intro {
-		min-height: 80vh;
-		padding: 6rem 1rem 2rem;
+		min-height: 100vh;
+		padding: 8rem 2rem 4rem;
 	}
 	
 	.intro__content {
 		grid-template-columns: 1fr;
-		gap: 2rem;
+		gap: 4rem;
 		text-align: center;
 	}
-	
+
 	.intro__img {
-		width: 200px;
-		height: 200px;
+		width: 100%;
+		height: 400px;
 		margin: 0 auto;
 	}
 	
 	.section__title--intro {
+		font-size: var(--fs-h1);
+		text-align: center;
+	}
+
+	.section__subtitle--intro {
+		font-size: var(--fs-body);
 		text-align: center;
 	}
 }
@@ -421,10 +403,10 @@ header {
 /* My services section - Tesla Inspired */
 
 .my-services {
-	background: var(--clr-gray-100);
+	background: var(--clr-white);
 	color: var(--clr-gray-900);
 	text-align: center;
-	padding: 10rem 4rem;
+	padding: 12rem 4rem;
 }
 
 .section__title--services {
@@ -489,17 +471,18 @@ header {
 .skills-container {
 	max-width: 1000px;
 	margin: 0 auto;
-	display: grid;
-	gap: 4rem;
+	display: block;
+	gap: 0rem;
 }
 
 .skill-category {
 	background: var(--clr-white);
 	border: 1px solid var(--clr-gray-200);
-	padding: 3rem 4rem;
+	padding: 1rem 1.5rem;
 	border-radius: 16px;
 	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	margin-bottom: 1rem;
 }
 
 .skill-category:hover {
@@ -583,9 +566,6 @@ header {
 	transition: transform 0.3s ease;
 }
 
-.about-me__img:hover {
-	transform: scale(1.05);
-}
 
 .about-me__body {
 	margin-top: 2rem;
@@ -616,73 +596,375 @@ header {
 	}
 }
 
-/* My Work - Tesla Inspired */
+/* My Work - Project Tiles Grid Layout with Hover Effects + Skills - Updated v7 */
 
 .my-work {
-	background: var(--clr-light);
-	color: var(--clr-dark);
-	text-align: center;
-	padding: 6rem 2rem;
+	background: var(--clr-white);
+	color: var(--clr-gray-900);
+	padding: 0;
+	height: auto;
+	display: flex;
 }
 
-.section__subtitle--work {
-	color: var(--clr-gray-600);
-	font-weight: var(--fw-reg);
-	margin-bottom: 4rem;
+.section__title--work {
+	display: none;
 }
 
+/* Left Side - Project Tiles Grid (50%) */
 .portfolio {
+	width: 50%;
+	height: auto;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-	gap: 2rem;
-	max-width: 1200px;
-	margin: 0 auto;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: repeat(5, 400px);
+	gap: 1rem;
+	padding: 6rem 2rem 2rem;
+	overflow-y: auto;
+	background: #ffffff;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.portfolio::-webkit-scrollbar {
+	display: none; /* WebKit */
 }
 
 .portfolio__item {
-	background: var(--clr-gray-100);
+	width: 100%;
+	height: 400px;
+	position: relative;
 	overflow: hidden;
-	border-radius: 16px;
-	box-shadow: 0 8px 32px rgba(56, 62, 78, 0.1);
-	transition: all 0.3s ease;
-	border: 1px solid var(--clr-light);
-}
-
-.portfolio__item:hover {
-	transform: translateY(-8px);
-	box-shadow: 0 16px 48px rgba(56, 62, 78, 0.2);
-	border-color: var(--clr-dark);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--clr-white);
+	border-radius: 12px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
 }
 
 .portfolio__img {
 	width: 100%;
-	height: 250px;
+	height: 100%;
 	object-fit: cover;
-	transition: transform 0.3s ease;
+	object-position: center;
+	border-radius: 12px;
+	filter: none !important;
+	-webkit-filter: none !important;
+	-moz-filter: none !important;
+	-ms-filter: none !important;
+	-o-filter: none !important;
+	transition: all 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	cursor: pointer;
 }
 
-.portfolio__item:focus {
-	position: relative;
-	z-index: 2;
+.portfolio__item:hover .portfolio__img {
+	object-fit: contain;
+	background: var(--clr-white);
+	box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+	transform: scale(1.02);
 }
 
-.portfolio__img:hover,
-.portfolio__item:focus .portfolio__img {
-	transform: scale(1.05);
+.portfolio__overlay {
+	position: absolute;
+	bottom: 4rem;
+	left: 4rem;
+	right: 4rem;
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(20px);
+	padding: 3rem 4rem;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
+.portfolio__title {
+	font-size: var(--fs-h2);
+	font-weight: var(--fw-ultra-light);
+	color: var(--clr-gray-900);
+	margin: 0 0 1.5rem 0;
+	letter-spacing: 0.02em;
+	line-height: 1.1;
+}
+
+.portfolio__description {
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-700);
+	line-height: 1.4;
+	margin: 0;
+}
+
+/* Right Side - Fixed Content Sidebar (50%) */
+.about-sidebar {
+	width: 50%;
+	height: 100vh;
+	background: url('media/marble-texture.jpg') center/cover;
+	position: fixed;
+	right: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 6rem 3rem 4rem;
+	overflow-y: auto;
+	border-left: 1px solid var(--clr-gray-200);
+	z-index: 100;
+}
+
+.about-sidebar__content {
+	text-align: left;
+	max-width: 90%;
+	width: 100%;
+}
+
+
+/* Hello Section */
+.hello-section {
+	margin-bottom: 1rem;
+}
+
+.hello-title {
+	font-size: 3rem;
+	font-weight: 600;
+	font-family: 'Playfair Display', serif;
+	color: var(--clr-gray-900);
+	margin: 0;
+	letter-spacing: 0.02em;
+	text-align: left;
+}
+
+/* Profile Section */
+.profile-section {
+	margin-bottom: 1.5rem;
+	text-align: left;
+	display: flex;
+	align-items: flex-start;
+	gap: 1.5rem;
+}
+
+.profile-img {
+	width: 220px;
+	height: 220px;
+	border-radius: 12px;
+	object-fit: cover;
+	display: block;
+	margin: 0;
+	flex-shrink: 0;
+}
+
+.about-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.about-title {
+	font-size: 1rem;
+	font-weight: var(--fw-bold);
+	color: var(--clr-gray-600);
+	margin: 0 0 0.1rem 1.5rem;
+	letter-spacing: 0.03em;
+}
+
+.about-text {
+	font-size: 0.9rem;
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-700);
+	line-height: 1.5;
+	margin: 0;
+	background: rgba(255, 255, 255, 0.95);
+	padding: 1.5rem;
+	margin-top: -0.2rem;
+	border-radius: 15px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(10px);
+}
+
+/* Resume Section */
+.resume-section {
+	margin-bottom: 1.2rem;
+	text-align: left;
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.contact-button, .resume-button, .github-button {
+	display: inline-block;
+	background: var(--clr-gray-700);
+	color: var(--clr-white);
+	padding: 0.8rem 2rem;
+	border-radius: 25px;
+	text-decoration: none;
+	font-size: 0.9rem;
+	font-weight: var(--fw-light);
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-button:hover, .resume-button:hover, .github-button:hover {
+	background: var(--clr-gray-900);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-button {
+	background: var(--clr-gray-800);
+}
+
+.contact-button:hover {
+	background: var(--clr-gray-900);
+}
+
+.github-button {
+	background: var(--clr-gray-600);
+}
+
+.github-button:hover {
+	background: var(--clr-gray-800);
+}
+
+/* Technical Skills Section */
+.skills-container {
+	width: 100%;
+	margin-top: 0.5rem;
+}
+
+.skills-title {
+	font-size: 1rem;
+	font-weight: var(--fw-bold);
+	color: var(--clr-gray-600);
+	margin: 0 0 0.5rem 0;
+	letter-spacing: 0.03em;
+}
+
+.skill-category {
+	margin-bottom: 1rem;
+}
+
+.skill-category__title {
+	font-size: 0.8rem;
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-500);
+	margin: 0 0 0.6rem 0;
+	text-align: left;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.skill-items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	justify-content: flex-start;
+}
+
+.skill-item {
+	background: var(--clr-white);
+	border: 1px solid var(--clr-gray-200);
+	color: var(--clr-gray-700);
+	padding: 0.5rem 1.2rem;
+	border-radius: 15px;
+	font-size: 0.85rem;
+	font-weight: var(--fw-light);
+	letter-spacing: 0.01em;
+	transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+	flex: 1;
+	min-width: fit-content;
+}
+
+.skill-item:hover {
+	background: var(--clr-gray-700);
+	color: var(--clr-white);
+	border-color: var(--clr-gray-700);
+	transform: translateY(-1px);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.about-sidebar__description {
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-700);
+	line-height: 1.6;
+	margin: 0 0 3rem 0;
+}
+
+.about-sidebar__section {
+	margin-bottom: 3rem;
+}
+
+.about-sidebar__section-title {
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-900);
+	margin: 0 0 1.5rem 0;
+	letter-spacing: 0.03em;
+}
+
+.about-sidebar__links {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.about-sidebar__link {
+	display: inline-block;
+	padding: 1rem 0;
+	color: var(--clr-gray-900);
+	text-decoration: none;
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	transition: all 0.3s ease;
+	border-bottom: 1px solid transparent;
+}
+
+
+.skills-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.skills-list__item {
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-700);
+	margin-bottom: 0.5rem;
+	padding: 0.5rem 0;
+	border-bottom: 1px solid var(--clr-gray-200);
+}
+
+@media (max-width: 1024px) {
 	.my-work {
-		padding: 4rem 1rem;
+		flex-direction: column;
+		height: auto;
 	}
 	
 	.portfolio {
+		width: 100%;
+		height: auto;
 		grid-template-columns: 1fr;
-		gap: 1.5rem;
+		grid-template-rows: repeat(10, 400px);
+		gap: 1rem;
+		padding: 2rem 1rem;
 	}
 	
-	.portfolio__img {
-		height: 200px;
+	.about-sidebar {
+		width: 100%;
+		height: auto;
+		position: relative;
+		padding: 3rem 2rem;
+		border-left: none;
+		border-top: 1px solid var(--clr-gray-200);
+		background: var(--clr-white);
+	}
+	
+	.about-sidebar__img {
+		width: 150px;
+		height: 150px;
+		border: 2px solid red;
 	}
 }
 
@@ -694,6 +976,229 @@ header {
 	color: var(--clr-light);
 	text-align: center;
 	padding: 3rem 2rem 2rem;
+}
+
+/* Resume Page Styles */
+.resume-container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 6rem 2rem 4rem;
+	background: var(--clr-white);
+	color: var(--clr-gray-900);
+	line-height: 1.6;
+}
+
+.back-button-container {
+	margin-bottom: 3rem;
+}
+
+.back-button {
+	display: inline-block;
+	color: var(--clr-gray-700);
+	text-decoration: none;
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	transition: color 0.3s ease;
+}
+
+.back-button:hover {
+	color: var(--clr-gray-900);
+}
+
+.resume-header {
+	text-align: center;
+	margin-bottom: 4rem;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid var(--clr-gray-200);
+}
+
+.resume-name {
+	font-size: 3rem;
+	font-weight: var(--fw-ultra-light);
+	color: var(--clr-gray-900);
+	margin: 0 0 0.5rem 0;
+	letter-spacing: 0.02em;
+}
+
+.resume-title {
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-600);
+	margin: 0 0 1rem 0;
+	letter-spacing: 0.03em;
+}
+
+.contact-info p {
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-500);
+	margin: 0;
+	letter-spacing: 0.02em;
+}
+
+.resume-content {
+	display: grid;
+	gap: 3rem;
+}
+
+.resume-section {
+	border-bottom: 1px solid var(--clr-gray-100);
+	padding-bottom: 2rem;
+}
+
+.section-title {
+	font-size: var(--fs-h3);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-900);
+	margin: 0 0 1.5rem 0;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.section-content {
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-700);
+	line-height: 1.7;
+	margin: 0;
+}
+
+/* Experience Styles */
+.experience-item {
+	margin-bottom: 2.5rem;
+}
+
+.experience-item:last-child {
+	margin-bottom: 0;
+}
+
+.job-title {
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-900);
+	margin: 0 0 0.3rem 0;
+	letter-spacing: 0.02em;
+}
+
+.company {
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-600);
+	margin: 0 0 1rem 0;
+	font-style: italic;
+}
+
+.job-details {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.job-details li {
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-700);
+	margin-bottom: 0.5rem;
+	padding-left: 1.5rem;
+	position: relative;
+	line-height: 1.6;
+}
+
+.job-details li::before {
+	content: '•';
+	color: var(--clr-gray-500);
+	font-weight: var(--fw-medium);
+	position: absolute;
+	left: 0;
+}
+
+/* Education Styles */
+.education-item {
+	margin-bottom: 1.5rem;
+}
+
+.degree {
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-900);
+	margin: 0 0 0.3rem 0;
+	letter-spacing: 0.02em;
+}
+
+.school {
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-600);
+	margin: 0 0 0.3rem 0;
+	font-style: italic;
+}
+
+.details {
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-500);
+	margin: 0;
+}
+
+/* Skills Grid */
+.skills-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2rem;
+}
+
+.skill-category-title {
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-900);
+	margin: 0 0 0.8rem 0;
+	letter-spacing: 0.02em;
+}
+
+.skill-list {
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-700);
+	margin: 0;
+	line-height: 1.6;
+}
+
+/* Project Styles */
+.project-item {
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+	background: var(--clr-gray-50);
+	border-radius: 12px;
+	border-left: 4px solid var(--clr-gray-700);
+}
+
+.project-item:last-child {
+	margin-bottom: 0;
+}
+
+.project-title {
+	font-size: var(--fs-h4);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-900);
+	margin: 0 0 0.8rem 0;
+	letter-spacing: 0.02em;
+}
+
+.project-description {
+	font-size: var(--fs-body);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-700);
+	margin: 0 0 0.8rem 0;
+	line-height: 1.6;
+}
+
+.project-tech {
+	font-size: var(--fs-small);
+	font-weight: var(--fw-light);
+	color: var(--clr-gray-500);
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
 }
 
 .footer a {

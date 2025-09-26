@@ -5,31 +5,6 @@
    Filename: index.js - Tesla Inspired
 */
 
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelectorAll('.nav__link');
-const header = document.querySelector('header');
-
-// Mobile Navigation Toggle
-navToggle.addEventListener('click', () => {
-	document.body.classList.toggle('nav-open');
-})
-
-navLinks.forEach(link => {
-	link.addEventListener('click', () => {
-		document.body.classList.remove('nav-open');
-	})
-})
-
-// Header scroll effect
-window.addEventListener('scroll', () => {
-	if (window.scrollY > 100) {
-		header.style.background = 'rgba(248, 249, 250, 0.98)';
-		header.style.boxShadow = '0 4px 32px rgba(56, 62, 78, 0.15)';
-	} else {
-		header.style.background = 'rgba(248, 249, 250, 0.95)';
-		header.style.boxShadow = 'none';
-	}
-});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -45,10 +20,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 	});
 });
 
-// Intersection Observer for animations
+// Enhanced Intersection Observer for Mekuwelt-style animations
 const observerOptions = {
 	threshold: 0.1,
-	rootMargin: '0px 0px -50px 0px'
+	rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -56,9 +31,59 @@ const observer = new IntersectionObserver((entries) => {
 		if (entry.isIntersecting) {
 			entry.target.style.opacity = '1';
 			entry.target.style.transform = 'translateY(0)';
+			
 		}
 	});
 }, observerOptions);
+
+// Debug preloader functionality
+console.log('JavaScript loaded');
+
+function hidePreloader() {
+	console.log('hidePreloader called');
+	const preloader = document.getElementById('preloader');
+	console.log('Preloader element:', preloader);
+	if (preloader) {
+		preloader.style.opacity = '0';
+		preloader.style.transition = 'opacity 0.5s ease-out';
+		setTimeout(() => {
+			preloader.style.display = 'none';
+			console.log('Preloader hidden');
+		}, 500);
+	}
+}
+
+function countUp() {
+	console.log('countUp called');
+	const percentage = document.querySelector('.preloader-percentage');
+	console.log('Percentage element:', percentage);
+	if (percentage) {
+		let currentCount = parseInt(percentage.textContent) || 0;
+		currentCount += 5;
+		if (currentCount >= 100) {
+			percentage.textContent = '100%';
+			setTimeout(hidePreloader, 1000);
+		} else {
+			percentage.textContent = currentCount + '%';
+			setTimeout(countUp, 200);
+		}
+	}
+}
+
+// Start immediately when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+	console.log('DOM loaded');
+	setTimeout(() => {
+		console.log('Starting countUp');
+		countUp();
+	}, 2000);
+});
+
+// Force hide after 8 seconds
+setTimeout(() => {
+	console.log('Force hiding preloader');
+	hidePreloader();
+}, 8000);
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
@@ -66,8 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	animatedElements.forEach(el => {
 		el.style.opacity = '0';
-		el.style.transform = 'translateY(30px)';
-		el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+		el.style.transform = 'translateY(50px)';
+		el.style.transition = 'opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 		observer.observe(el);
 	});
+	
 });
