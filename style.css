@@ -724,9 +724,9 @@ h4 {
 }
 
 .hello-title {
-	font-size: 3rem;
+	font-size: 7rem;
 	font-weight: 600;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Reenie Beanie', cursive;
 	color: var(--clr-gray-900);
 	margin: 0;
 	letter-spacing: 0.02em;
