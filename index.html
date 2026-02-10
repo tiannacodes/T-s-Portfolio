@@ -1,230 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Tianna T. – Portfolio</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<!-- Top Navigation -->
+	<nav class="nav">
+		<a href="#testimonials" class="nav__link">Endorsements</a>
+		<a href="#principles" class="nav__link">Principles</a>
+		<a href="#skills" class="nav__link">Skills</a>
+		<a href="#contact" class="nav__link">Contact</a>
+	</nav>
 
-   <!--
-   Author: Tianna Hatch 
-   Last Updated Date:   03/07/2022
-   
-   Filename: index.html
-   -->
-
-	<head>
-		<meta charset="utf-8" />
-   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-   		<title>T's Portfolio</title>
-   		<link rel="stylesheet"
-   		href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-   		
-   		<!--- social icons --->
-   		<script src="https://kit.fontawesome.com/fc8bcfb164.js" crossorigin="anonymous"></script>
-
-   		<!--- Font Link - Tesla Inspired --->
-   		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Reenie+Beanie&display=swap" rel="stylesheet">
-
-   		<!--- link CSS Style Sheets --->
-   		<link rel="stylesheet" href="style.css?v=3">
-
-	</head>
-	<body>
-
-		<!-- Preloader -->
-		<div id="preloader">
-			<div class="preloader-content">
-				<div class="preloader-logo">
-					<h1>T</h1>
+	<!-- Hero -->
+	<header id="hero" class="hero">
+		<div class="hero__content">
+			<div class="hero__frame">
+				<div class="hero__masthead">
+					<div class="hero__mastheadName">Tianna T.</div>
+					<div class="hero__mastheadMeta">Strategy • Systems • Leadership</div>
 				</div>
-				<div class="preloader-text">Loading...</div>
-				<div class="preloader-counter">
-					<span class="preloader-percentage">0%</span>
+				<div class="hero__image-wrapper hero__imageWrap">
+					<img src="media/pro.jpg" alt="Portrait of Tianna T." class="hero__image" />
+				</div>
+				<div class="hero__meta">
+					<div class="hero__experience">
+						<div class="hero__exp-item">
+							<span class="hero__exp-label">Program Leadership</span>
+							<span class="hero__exp-years" data-years="8">0</span>
+							<span class="hero__exp-suffix">Years</span>
+						</div>
+
+						<div class="hero__exp-item">
+							<span class="hero__exp-label">Technical Sales &amp; Market Strategy</span>
+							<span class="hero__exp-years" data-years="11">0</span>
+							<span class="hero__exp-suffix">Years</span>
+						</div>
+
+						<div class="hero__exp-item">
+							<span class="hero__exp-label">Software Engineering</span>
+							<span class="hero__exp-years" data-years="8">0</span>
+							<span class="hero__exp-suffix">Years</span>
+						</div>
+
+						<div class="hero__exp-item">
+							<span class="hero__exp-label">Data &amp; Analytics</span>
+							<span class="hero__exp-years" data-years="8">0</span>
+							<span class="hero__exp-suffix">Years</span>
+						</div>
+					</div>
+
+					<div class="hero__actions">
+						<a href="Resume 2026.pdf" target="_blank" rel="noopener noreferrer" class="button button--primary">View Resume</a>
+					</div>
 				</div>
 			</div>
 		</div>
+	</header>
 
-		<!--- My Work--->
-		<section class="my-work" id="work">
-			<!-- Left Side - Scrollable Project Images -->
-			<div class="portfolio">
-				<!-- Tesla Clone App -->
-				<div class="portfolio__item">
-					<img src="media/port_optimized.png?v=6" alt="Tesla Clone App" class="portfolio__img" loading="eager" decoding="async">
+	<!-- Testimonials / Endorsements -->
+	<section id="testimonials">
+		<div class="container">
+		<h2 class="section__title">Endorsements</h2>
+		<div class="testimonials__content">
+			<article class="testimonial__card testimonial__card--featured">
+				<p class="testimonial__quote">
+					"Tianna led development of the DoDI Dashboard, a high-visibility solution integrating multiple complex data sources to deliver actionable insights for DHS stakeholders. She managed 25+ requirements, stabilized an uncertain project, and delivered on time despite shifting priorities. The dashboard exceeded stakeholder expectations, earned strong praise from government leadership, and is slated for discussion at AMSUS 2026—demonstrating strategic impact. Tianna expanded beyond data analytics into full-stack development to close capability gaps and sustain momentum."
+				</p>
+				<p class="testimonial__attribution">— Senior Leader (Gov/Enterprise)</p>
+			</article>
+			<div class="testimonials__grid">
+				<article class="testimonial__card">
+					<p class="testimonial__quote">
+						"A standout leader with exceptional potential—proactive in pursuing growth opportunities, thriving in challenging roles, and consistently exceeding expectations relative to peers."
+					</p>
+					<p class="testimonial__attribution">— Senior Leader</p>
+				</article>
+				<article class="testimonial__card">
+					<p class="testimonial__quote">
+						"A rare leader who inspires deep trust and loyalty. Her mentorship and leadership presence consistently motivated others to take ownership and pursue ambitious goals."
+					</p>
+					<p class="testimonial__attribution">— Direct Report</p>
+				</article>
+				<article class="testimonial__card">
+					<p class="testimonial__quote">
+						"Tianna is deeply committed to excellence and to the success of those around her. She shared best practices, supported peers, and helped transform our unit into a proactive, solutions-driven team."
+					</p>
+					<p class="testimonial__attribution">— Peer / Teammate</p>
+				</article>
+				<article class="testimonial__card">
+					<p class="testimonial__quote">
+						"Tianna consistently balanced demanding operational requirements with genuine care for her people. Her judgment and decisiveness in complex environments set a standard others followed."
+					</p>
+					<p class="testimonial__attribution">— Military Colleague</p>
+				</article>
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<!-- Operating Principles -->
+	<section id="principles">
+		<div class="container">
+		<h2 class="section__title">Operating Principles</h2>
+		<div class="principles__content">
+			<div class="principles__list">
+				<article class="principle__item">
+					<div class="principle__number">01</div>
+					<div>
+						<h3 class="principle__title">Clarity creates speed</h3>
+						<p class="principle__text">
+							I translate complex strategy into clear priorities so teams can execute with confidence and urgency.
+						</p>
+					</div>
+				</article>
+
+				<article class="principle__item">
+					<div class="principle__number">02</div>
+					<div>
+						<h3 class="principle__title">Decisions drive momentum</h3>
+						<p class="principle__text">
+							Progress comes from timely, accountable decisions — informed by data, not consensus.
+						</p>
+					</div>
+				</article>
+
+				<article class="principle__item">
+					<div class="principle__number">03</div>
+					<div>
+						<h3 class="principle__title">Build systems, not heroics</h3>
+						<p class="principle__text">
+							I design processes and operating models that scale without constant oversight.
+						</p>
+					</div>
+				</article>
+
+				<article class="principle__item">
+					<div class="principle__number">04</div>
+					<div>
+						<h3 class="principle__title">Discipline over activity</h3>
+						<p class="principle__text">
+							Focus, prioritization, and operational rigor deliver more impact than effort alone.
+						</p>
+					</div>
+				</article>
+
+				<article class="principle__item">
+					<div class="principle__number">05</div>
+					<div>
+						<h3 class="principle__title">Outcomes define leadership</h3>
+						<p class="principle__text">
+							Success is measured by mission results, business impact, and sustained team performance.
+						</p>
+					</div>
+				</article>
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<!-- Skills -->
+	<section id="skills" class="skills">
+		<div class="container">
+		<div class="skills__content">
+			<h2 class="skills__title">Technical Skills</h2>
+			<p class="skills__intro">Technical leadership to architect, deliver, and scale enterprise data, cloud, and application platforms.</p>
+			<div class="skills__grid">
+				<div class="skills__category">
+					<h3 class="skills__category-title">Data &amp; Analytics</h3>
+					<div class="skills__tags">
+						<span class="skills__tag">SQL</span>
+						<span class="skills__tag">Python</span>
+						<span class="skills__tag">Power BI</span>
+						<span class="skills__tag">Tableau</span>
+						<span class="skills__tag">Data Modeling</span>
+						<span class="skills__tag">ETL / Data Integration</span>
+					</div>
 				</div>
-
-				<!-- Midnight Society App -->
-				<div class="portfolio__item">
-					<img src="media/port2_optimized.png?v=6" alt="Midnight Society App" class="portfolio__img" loading="eager" decoding="async">
+				<div class="skills__category">
+					<h3 class="skills__category-title">Application &amp; Systems</h3>
+					<div class="skills__tags">
+						<span class="skills__tag">JavaScript</span>
+						<span class="skills__tag">TypeScript</span>
+						<span class="skills__tag">React</span>
+						<span class="skills__tag">REST APIs</span>
+						<span class="skills__tag">ASP.NET</span>
+						<span class="skills__tag">Azure</span>
+						<span class="skills__tag">AWS</span>
+					</div>
 				</div>
-
-				<!-- RAG Project -->
-				<div class="portfolio__item">
-					<img src="media/rag.png?v=7" alt="RAG Project" class="portfolio__img" loading="eager" decoding="async">
+				<div class="skills__category">
+					<h3 class="skills__category-title">Platforms &amp; Automation</h3>
+					<div class="skills__tags">
+						<span class="skills__tag">Azure DevOps</span>
+						<span class="skills__tag">Git</span>
+						<span class="skills__tag">Docker</span>
+						<span class="skills__tag">Power Automate</span>
+					</div>
 				</div>
-
-				<!-- Saint Project -->
-				<div class="portfolio__item">
-					<img src="media/Saint.png?v=6" alt="Saint Project" class="portfolio__img" loading="eager" decoding="async">
-				</div>
-
-				<!-- Glass UI Design -->
-				<div class="portfolio__item">
-					<img src="media/glass1.png?v=6" alt="Glass UI Design" class="portfolio__img" loading="eager" decoding="async">
-				</div>
-
-				<!-- Solo Project -->
-				<div class="portfolio__item">
-					<img src="media/solo.png?v=6" alt="Solo Project" class="portfolio__img" loading="eager" decoding="async">
-				</div>
-
-				<!-- Gold Core Design -->
-				<div class="portfolio__item">
-					<img src="media/gold.png?v=6" alt="Gold Core Design" class="portfolio__img" loading="eager" decoding="async">
+				<div class="skills__category">
+					<h3 class="skills__category-title">Security, Compliance &amp; Governance</h3>
+					<div class="skills__tags">
+						<span class="skills__tag">ISC2 Certified in Cybersecurity</span>
+						<span class="skills__tag">CySA+</span>
+					</div>
 				</div>
 			</div>
+		</div>
+		</div>
+	</section>
 
-			<!-- Right Side - Fixed Content Sidebar -->
-			<div class="about-sidebar">
-				<div class="about-sidebar__content">
-					<!-- Hello Section -->
-					<div class="hello-section">
-						<h2 class="hello-title">Tianna</h2>
-					</div>
-					
-				<!-- Profile Photo and About Me Section -->
-				<div class="profile-section">
-					<img src="media/profile_optimized.jpg?v=12" alt="Tianna" class="profile-img">
-					<div class="about-content">
-						<h3 class="about-title">About Me</h3>
-						<p></p>
-						<p class="about-text">For over 10 years, I've been a creative developer and leader, building digital experiences that feel as good as they look.
-							My background in military leadership taught me how to translate high-level strategic vision into tactical, technical execution. Whether I'm diving deep into the
-							laws of physics, exploring new worlds in a video game, or perfecting my personal style, my philosophy is the same: lead with intention, build with purpose, and never be afraid to
-							bridge the gap between imagination and execution.</div>
-				</div>
-					
-					<!-- Contact, Resume and GitHub Buttons -->
-					<div class="resume-section">
-						<a href="mailto:tianhatch@gmail.com" class="contact-button">Contact Me</a>
-						<a href="media/Tianna_Resume.pdf" target="_blank" class="resume-button">View Resume</a>
-						<a href="https://github.com/tiannacodes" target="_blank" class="github-button">GitHub</a>
-					</div>
-					
-					<!-- Technical Skills Section -->
-					<div class="skills-container">
-						<h3 class="skills-title">Technical Skills</h3>
-						
-						<div class="skill-category">
-							<h4 class="skill-category__title">Programming Languages</h4>
-							<div class="skill-items">
-								<span class="skill-item">JavaScript</span>
-								<span class="skill-item">SQL</span>
-								<span class="skill-item">Python</span>
-								<span class="skill-item">TypeScript</span>
-								<span class="skill-item">C++</span>
-								<span class="skill-item">Java</span>
-								<span class="skill-item">VBA</span>
-							</div>
-						</div>
-						
-						<div class="skill-category">
-							<h4 class="skill-category__title">Web Application</h4>
-							<div class="skill-items">
-								<span class="skill-item">HTML/CSS</span>
-								<span class="skill-item">XML</span>
-								<span class="skill-item">JSON</span>
-								<span class="skill-item">React.js</span>
-								<span class="skill-item">Vue.js</span>
-								<span class="skill-item">REST API</span>
-								<span class="skill-item">ASP.NET</span>
-							</div>
-						</div>
-						
-						<div class="skill-category">
-							<h4 class="skill-category__title">Software/Tools</h4>
-							<div class="skill-items">
-								<span class="skill-item">Visual Studio</span>
-								<span class="skill-item">Git</span>
-								<span class="skill-item">Docker</span>
-								<span class="skill-item">AWS</span>
-								<span class="skill-item">Microsoft Azure</span>
-								<span class="skill-item">Adobe Photoshop</span>
-								<span class="skill-item">Adobe XD</span>
-								<span class="skill-item">Figma</span>
-								<span class="skill-item">Power BI</span>
-								<span class="skill-item">Power Automate</span>
-								<span class="skill-item">Tableau</span>
-							</div>
-						</div>
-						
-						<div class="skill-category">
-							<h4 class="skill-category__title">Certifications</h4>
-							<div class="skill-items">
-								<span class="skill-item">Certified in Cybersecurity ISC2</span>
-								<span class="skill-item">Cybersecurity Analyst+</span>
-							</div>
-						</div>
-					</div>
+	<!-- Contact -->
+	<section id="contact">
+		<div class="contact__content">
+			<div class="contact__footer">
+				<div class="contact__center">
+					<a href="mailto:tianntorres@gmail.com" class="contact__link">Email</a>
+					<a href="https://www.linkedin.com/in/t-tianna/" target="_blank" rel="noreferrer" class="contact__link">LinkedIn</a>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<!--- Footer--->
-		<footer class="footer" id="footer">	
-			<ul class="social-list">
-				<li class=social-list__item>
-					<a target="_blank" rel="noopener noreferrer" class="social-list__link" 
-					href="https://www.linkedin.com/in/t-hatch/">
-					<i class="fa-brands fa-linkedin"></i>
-					</a>
-				</li>
+	<footer class="footer">
+		<p class="footer__text">&copy; <span id="year"></span> Tianna T. All rights reserved.</p>
+	</footer>
 
-				<li class=social-list__item>
-					<a target="_blank" rel="noopener noreferrer"  class="social-list__link" href="https://github.com/tiannacodes">
-					<i class="fa-brands fa-github"></i>
-					</a>
-				</li>
-				
-			</ul>
-		</footer>
-
-<script src="index.js"></script>
-
-<script>
-// Fast preloader
-function hidePreloader() {
-	const preloader = document.getElementById('preloader');
-	if (preloader) {
-		preloader.style.opacity = '0';
-		preloader.style.transition = 'opacity 0.3s ease-out';
-		setTimeout(() => {
-			preloader.style.display = 'none';
-		}, 300);
-	}
-}
-
-function countUp() {
-	const percentage = document.querySelector('.preloader-percentage');
-	if (percentage) {
-		let current = parseInt(percentage.textContent) || 0;
-		current += 15;
-		if (current >= 100) {
-			percentage.textContent = '100%';
-			setTimeout(hidePreloader, 300);
-		} else {
-			percentage.textContent = current + '%';
-			setTimeout(countUp, 150);
-		}
-	}
-}
-
-// Start quickly after 1 second
-setTimeout(() => {
-	countUp();
-}, 1000);
-
-// Force hide after 4 seconds max
-setTimeout(hidePreloader, 4000);
-</script>
-
-	</body>
-
+	<script src="index.js"></script>
+	<script>
+		// Set current year in footer
+		document.getElementById('year').textContent = new Date().getFullYear();
+	</script>
+</body>
 </html>
+

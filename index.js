@@ -1,10 +1,12 @@
 /* 
-   Author: Tianna Hatch 
-   Last Updated Date:   02/22/2022
+   Author: Tianna T. 
+   Last Updated Date: 2025
    
-   Filename: index.js - Tesla Inspired
+   Filename: index.js
 */
 
+// Check for reduced motion preference
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -13,87 +15,94 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 		const target = document.querySelector(this.getAttribute('href'));
 		if (target) {
 			target.scrollIntoView({
-				behavior: 'smooth',
+				behavior: prefersReducedMotion ? 'auto' : 'smooth',
 				block: 'start'
 			});
 		}
 	});
 });
 
-// Enhanced Intersection Observer for Mekuwelt-style animations
-const observerOptions = {
-	threshold: 0.1,
-	rootMargin: '0px 0px -100px 0px'
+// Intersection Observer for subtle reveal animations
+if (!prefersReducedMotion) {
+	const observerOptions = {
+		threshold: 0.15,
+		rootMargin: '0px 0px -80px 0px'
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry, index) => {
+			if (entry.isIntersecting) {
+				// Stagger animation delays for visual interest
+				setTimeout(() => {
+					entry.target.classList.add('visible');
+				}, index * 100);
+				observer.unobserve(entry.target);
+			}
+		});
+	}, observerOptions);
+
+	// Observe elements that should fade in on scroll
+	document.addEventListener('DOMContentLoaded', () => {
+		const animatedElements = document.querySelectorAll('.principle__item, .testimonial__card');
+		
+		animatedElements.forEach(el => {
+			observer.observe(el);
+		});
+	});
+}
+
+// Add visible class immediately if reduced motion is preferred
+if (prefersReducedMotion) {
+	document.addEventListener('DOMContentLoaded', () => {
+		const animatedElements = document.querySelectorAll('.principle__item, .testimonial__card');
+		animatedElements.forEach(el => {
+			el.classList.add('visible');
+		});
+	});
+}
+
+// Hero experience counters
+const animateHeroExperienceCounters = () => {
+	const counters = document.querySelectorAll('.hero__exp-years');
+	if (!counters.length) return;
+
+	counters.forEach(counter => {
+		const target = parseInt(counter.dataset.years, 10);
+		if (Number.isNaN(target) || target <= 0) return;
+
+		let current = 0;
+		const duration = 1200;
+		const stepTime = Math.max(Math.floor(duration / target), 40);
+
+		const updateCounter = () => {
+			current += 1;
+			counter.textContent = current;
+			if (current < target) {
+				setTimeout(updateCounter, stepTime);
+			}
+		};
+
+		// slight delay so it feels intentional, not jittery
+		setTimeout(updateCounter, 300);
+	});
 };
 
-const observer = new IntersectionObserver((entries) => {
-	entries.forEach(entry => {
-		if (entry.isIntersecting) {
-			entry.target.style.opacity = '1';
-			entry.target.style.transform = 'translateY(0)';
-			
+const setHeroExperienceCountersInstant = () => {
+	const counters = document.querySelectorAll('.hero__exp-years');
+	if (!counters.length) return;
+
+	counters.forEach(counter => {
+		const target = parseInt(counter.dataset.years, 10);
+		if (!Number.isNaN(target)) {
+			counter.textContent = target;
 		}
 	});
-}, observerOptions);
+};
 
-// Debug preloader functionality
-console.log('JavaScript loaded');
-
-function hidePreloader() {
-	console.log('hidePreloader called');
-	const preloader = document.getElementById('preloader');
-	console.log('Preloader element:', preloader);
-	if (preloader) {
-		preloader.style.opacity = '0';
-		preloader.style.transition = 'opacity 0.5s ease-out';
-		setTimeout(() => {
-			preloader.style.display = 'none';
-			console.log('Preloader hidden');
-		}, 500);
-	}
-}
-
-function countUp() {
-	console.log('countUp called');
-	const percentage = document.querySelector('.preloader-percentage');
-	console.log('Percentage element:', percentage);
-	if (percentage) {
-		let currentCount = parseInt(percentage.textContent) || 0;
-		currentCount += 5;
-		if (currentCount >= 100) {
-			percentage.textContent = '100%';
-			setTimeout(hidePreloader, 1000);
-		} else {
-			percentage.textContent = currentCount + '%';
-			setTimeout(countUp, 200);
-		}
-	}
-}
-
-// Start immediately when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-	console.log('DOM loaded');
-	setTimeout(() => {
-		console.log('Starting countUp');
-		countUp();
-	}, 2000);
-});
-
-// Force hide after 8 seconds
-setTimeout(() => {
-	console.log('Force hiding preloader');
-	hidePreloader();
-}, 8000);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-	const animatedElements = document.querySelectorAll('.service, .portfolio__item, .about-me__content');
-	
-	animatedElements.forEach(el => {
-		el.style.opacity = '0';
-		el.style.transform = 'translateY(50px)';
-		el.style.transition = 'opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-		observer.observe(el);
-	});
-	
+	if (prefersReducedMotion) {
+		setHeroExperienceCountersInstant();
+	} else {
+		animateHeroExperienceCounters();
+	}
 });
