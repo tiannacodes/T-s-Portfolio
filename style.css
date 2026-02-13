@@ -773,3 +773,97 @@ section {
 	margin-right: auto;
 	max-width: 1200px;
 }
+
+/* ========== Mobile (<= 768px): single-column hero, full-width image, nav wrap ========== */
+@media (max-width: 768px) {
+	/* Prevent horizontal clipping */
+	html, body { overflow-x: hidden; }
+
+	/* NAV: wrap so "ENDORSEMENTS" never clips */
+	.nav {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 12px 18px;
+		padding: 14px 16px;
+	}
+	.nav__link { white-space: nowrap; }
+
+	/* HERO: force 1-column layout */
+	.hero { padding: 0 16px 28px; }
+	.hero__content { padding: 0; }
+
+	.hero__frame {
+		display: grid;
+		grid-template-columns: 1fr !important;
+		grid-template-rows: none;
+		grid-template-areas: none;
+		gap: 16px;
+		padding: 18px;
+		min-height: auto;
+		max-height: none;
+		align-items: start;
+	}
+
+	/* Masthead: static, no offset on mobile */
+	.hero__masthead {
+		position: static !important;
+		top: auto;
+		left: auto;
+		margin: 0 0 8px 0;
+		padding: 0;
+	}
+
+	/* Image: full width */
+	.hero__imageWrap,
+	.hero__image-wrapper {
+		width: 100%;
+		justify-self: stretch;
+		transform: none !important;
+	}
+
+	.hero__image {
+		width: 100% !important;
+		max-width: 100% !important;
+		height: auto !important;
+		transform: none !important;
+	}
+
+	/* Right content becomes full width under image */
+	.hero__meta {
+		margin: 0 !important;
+		max-width: 100% !important;
+	}
+
+	/* Experience list: clean row layout (label left, number + "Years" right) */
+	.hero__experience { margin-top: 4px; }
+
+	.hero__exp-item {
+		display: grid;
+		grid-template-columns: 1fr auto auto;
+		align-items: baseline;
+		gap: 12px;
+		padding: 6px 0;
+	}
+
+	.hero__exp-label {
+		font-size: 15px;
+		line-height: 1.25;
+	}
+
+	.hero__exp-years {
+		font-size: 18px;
+		font-weight: 700;
+	}
+
+	.hero__exp-suffix {
+		font-size: 12px;
+		opacity: 0.65;
+	}
+
+	/* CTA: full width */
+	.hero__actions { margin-top: 8px; }
+	.hero__actions .button { width: 100%; justify-content: center; }
+
+	/* Sections: consistent padding */
+	section { padding-left: 16px; padding-right: 16px; }
+}

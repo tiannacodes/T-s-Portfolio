@@ -3,6 +3,17 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script>
+		(function() {
+			var base = document.createElement('base');
+			if (location.hostname === 'tiannacodes.github.io' || location.hostname === 'github.io') {
+				base.href = 'https://tiannacodes.github.io/T-s-Portfolio/';
+			} else {
+				base.href = location.href.substring(0, location.href.lastIndexOf('/') + 1);
+			}
+			document.head.appendChild(base);
+		})();
+	</script>
 	<title>Tianna T. – Portfolio</title>
 	<link rel="stylesheet" href="style.css" />
 </head>
